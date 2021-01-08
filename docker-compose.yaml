@@ -8,3 +8,13 @@ services:
     volumes:
       - ./:/app
       - /app/node_modules
+  node-image:
+    build: ./backend
+    container_name: node-container
+    ports:
+      - '3000:3000'
+    volumes: 
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      - lit-image
